@@ -26,10 +26,27 @@ An intelligent agent that automatically analyzes financial documents (bank state
 
 ---
 
-### 2. Future Project
-**Status:** 💡 Planned
+### 2. [Healthcare Management System](./health_care_management/)
+**Status:** ✅ Complete | **Tech:** Python, OpenAI GPT, AutoGen, FastAPI, MongoDB
 
-Additional AI projects coming soon...
+A multi-agent AI system for healthcare management that automates patient scheduling, prescription management, and administrative tasks using autonomous AI agents.
+
+**Key Features:**
+- Multi-agent architecture with specialized roles (receptionist, doctor assistant, admin, health insights)
+- Intelligent appointment booking with doctor availability optimization
+- Automated prescription generation and management
+- Patient health history tracking and analytics
+- RESTful API with web interface
+- MongoDB integration for persistent data storage
+
+**Highlights:**
+- Implements AutoGen framework for agent orchestration
+- Role-based agent routing system
+- Direct task execution without unnecessary confirmations
+- Scalable agent-based architecture for healthcare workflows
+- Real-time patient and appointment management
+
+[View Project Details →](./health_care_management/)
 
 ---
 
@@ -40,12 +57,16 @@ Additional AI projects coming soon...
 
 **AI/ML Frameworks:**
 - Google Gemini AI
+- OpenAI GPT API
+- AutoGen - Multi-agent framework
 - LangChain (planned)
-- OpenAI API (planned)
 
 **Libraries & Tools:**
 - pdfplumber - PDF processing
 - FastAPI - API development
+- MongoDB - Database storage
+- Motor - Async MongoDB driver
+- Pydantic - Data validation
 - Streamlit - UI development (planned)
 - Jupyter - Experimentation and analysis
 
@@ -63,12 +84,18 @@ ai-projects/
 │   ├── README.md                   # Project documentation
 │   └── requirements.txt            # Project dependencies
 │
+├── health_care_management/         # Healthcare AI agent system
+│   ├── agents.py                   # Multi-agent implementation
+│   ├── db_tools.py                 # Database operations
+│   ├── api.py                      # FastAPI backend
+│   ├── main.py                     # Test suite
+│   ├── templates/                  # Web UI templates
+│   ├── requirements.txt            # Project dependencies
+│   └── .gitignore                  # Project-specific ignores
+│
 ├── shared/                         # Shared utilities and helpers
 │   ├── utils.py                    # Common utility functions
 │   └── config.py                   # Shared configuration
-│
-├── notebooks/                      # Jupyter notebooks
-│   └── experiments/                # Experimental code and analysis
 │
 ├── .gitignore                      # Git ignore rules
 ├── README.md                       # This file
@@ -82,6 +109,7 @@ ai-projects/
 - Python 3.8 or higher
 - pip package manager
 - Git
+- MongoDB (for healthcare management system)
 
 ### Installation
 ```bash
@@ -177,4 +205,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Last Updated:** October 2025
+**Last Updated:** November 2025
