@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .response-section {
+            margin-top: 35px;
+        }
+        
+        .response-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .response-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        .response-box.empty {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .response-box.loading {
+            color: #667eea;
+            font-weight: 600;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .response-box.error {
+            border-left-color: #f44336;
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .examples {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+            border: 1px solid #d0dbf7;
+        }
+        
+        .examples h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .examples ul {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .examples li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .role-emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        /* Scrollbar styling */
+        .response-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .response-box::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .response-box::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        
+        .response-box::-webkit-scrollbar-thumb:hover {
+            background: #5568d3;
+        }
+
+        /* Loading animation */
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Healthcare AI System</h1>
+        <p class="subtitle">Intelligent multi-agent healthcare management powered by AI</p>
+        
+        <div class="form-group">
+            <label for="role">
+                <span class="role-emoji">👤</span>Select Your Role:
+            </label>
+            <select id="role" onchange="updateExamples()">
+                <option value="patient">👤 Patient - Book appointments, view records</option>
+                <option value="doctor">👨‍⚕️ Doctor - Prescriptions, patient history</option>
+                <option value="admin">⚙️ Admin - Manage doctors and system</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">
+                💬 Your Request:
+            </label>
+            <textarea 
+                id="message" 
+                placeholder="Type your request here... (Press Enter to send, Shift+Enter for new line)"
+            ></textarea>
+        </div>
+        
+        <div id="examples" class="examples">
+            <!-- Examples will be inserted here by JavaScript -->
+        </div>
+        
+        <button class="btn" onclick="sendRequest()" id="sendBtn">
+            🚀 Send Request
+        </button>
+        
+        <div class="response-section">
+            <h3>🤖 AI Response:</h3>
+            <div id="response" class="response-box empty">
+                Your AI agent response will appear here...
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Example requests for each role
+        const examples = {
+            patient: [
+                "Book appointment for John Doe with cardiologist tomorrow",
+                "Show my appointments for John Doe",
+                "Update contact number for patient P001 to 555-9999"
+            ],
+            doctor: [
+                "Generate prescription for patient P001, appointment A1001. Prescribe Aspirin 100mg daily",
+                "Show complete medical history for patient P001",
+                "What are the recent appointments for patient John Doe?"
+            ],
+            admin: [
+                "Add new doctor Dr. Johnson, Orthopedics, available Monday Wednesday Friday",
+                "Update Dr. Smith availability to Monday Tuesday Thursday",
+                "Show all doctors in the system"
+            ]
+        };
+        
+        // Update example requests when role changes
+        function updateExamples() {
+            const role = document.getElementById('role').value;
+            const roleNames = {
+                'patient': 'Patient',
+                'doctor': 'Doctor',
+                'admin': 'Admin'
+            };
+            
+            const examplesHtml = `
+                <h4>💡 Example requests for ${roleNames[role]}:</h4>
+                <ul>
+                    ${examples[role].map(ex => `<li>"${ex}"</li>`).join('')}
+                </ul>
+            `;
+            document.getElementById('examples').innerHTML = examplesHtml;
+        }
+        
+        // Main function to send request to API
+        async function sendRequest() {
+            const role = document.getElementById('role').value;
+            const message = document.getElementById('message').value;
+            const responseDiv = document.getElementById('response');
+            const sendBtn = document.getElementById('sendBtn');
+            
+            // Validate input
+            if (!message.trim()) {
+                alert('⚠️ Please enter a message before sending!');
+                return;
+            }
+            
+            // Show loading state
+            responseDiv.className = 'response-box loading';
+            responseDiv.innerText = '⏳ Processing your request with AI agents';
+            sendBtn.disabled = true;
+            sendBtn.innerText = '⏳ Processing...';
+            
+            try {
+                // Call the API
+                const response = await fetch('http://127.0.0.1:8000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        role: role,
+                        message: message
+                    })
+                });
+                
+                // Check if request was successful
+                if (!response.ok) {
+                    throw new Error(`API returned status ${response.status}`);
+                }
+                
+                // Parse response
+                const data = await response.json();
+                
+                // Display response
+                responseDiv.className = 'response-box';
+                responseDiv.innerText = data.Response || data.response || JSON.stringify(data, null, 2);
+                
+            } catch (error) {
+                // Handle errors
+                responseDiv.className = 'response-box error';
+                responseDiv.innerHTML = `
+                    <strong>❌ Error:</strong> ${error.message}
+                    <br><br>
+                    <strong>Troubleshooting:</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Make sure the API server is running (uvicorn api:app --reload)</li>
+                        <li>Check that MongoDB is running</li>
+                        <li>Verify the API is accessible at http://127.0.0.1:8000</li>
+                    </ul>
+                `;
+            } finally {
+                // Reset button state
+                sendBtn.disabled = false;
+                sendBtn.innerText = '🚀 Send Request';
+            }
+        }
+        
+        // Initialize examples on page load
+        updateExamples();
+        
+        // Allow Enter key to submit (Shift+Enter for new line)
+        document.getElementById('message').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendRequest();
+            }
+        });
+        
+        // Auto-focus on message textarea
+        document.getElementById('message').focus();
+    </script>
+</body>
+</html>
