@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+venv/
+myenv/
+env/
+ENV/
+.venv/
+*/venv/
+*/env/
+
+# API Keys & Secrets
+.env
+*.env
+.env.*
+*.key
+*.pem
+secrets.json
+credentials.json
+config.py
+.secrets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# AI/ML Specific
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+
+# Training outputs
+checkpoints/
+logs/
+runs/
+wandb/
+mlruns/
+
+# PDF Files (Sensitive data)
+*.pdf
+
+# Datasets
+*.zip
+*.tar.gz
+
+# Project Specific
+*/Bank_Statements/
+*/uploads/
+
