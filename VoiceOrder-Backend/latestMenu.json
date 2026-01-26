@@ -1,0 +1,460 @@
+{
+  "restaurant_info": {
+    "name": "house of biryani and kebabs",
+    "cuisine_types": [
+      "indian",
+      "indo-chinese",
+      "south indian"
+    ],
+    "specialties": [
+      "biryani",
+      "kebabs",
+      "dosas"
+    ],
+    "price_range": "$1.99 to $22.99",
+    "voice_recognition_variations": [
+      "house of biryani",
+      "biryani and kebabs",
+      "house of biryani kebabs"
+    ]
+  },
+  "menu": {
+    "dosa_section": [
+      {
+        "name": "plain dosa",
+        "price": "$6.99",
+        "type": "vegetarian",
+        "pronunciation": "plane doh-sah",
+        "voice_variations": [
+          "plain dosa",
+          "plane dosa",
+          "simple dosa",
+          "regular dosa"
+        ],
+        "description": "traditional south indian rice and lentil crepe, crispy and light",
+        "common_questions": [
+          {
+            "question": "what's a dosa?",
+            "answer": "thin, crispy crepe made from fermented rice and lentil batter"
+          },
+          {
+            "question": "is it filling?",
+            "answer": "light meal, can be ordered with sides"
+          },
+          {
+            "question": "what comes with it?",
+            "answer": "served with sambar and chutneys"
+          }
+        ]
+      },
+      {
+        "name": "masala dosa",
+        "price": "$9.99",
+        "type": "vegetarian",
+        "pronunciation": "muh-sah-lah doh-sah",
+        "voice_variations": [
+          "masala dosa",
+          "massala dosa",
+          "potato dosa",
+          "dosa with potato"
+        ],
+        "description": "crispy dosa filled with spiced potato filling",
+        "popular_choice": true,
+        "similar_items": [
+          "plain dosa (simpler)",
+          "mysore masala dosa (spicier)"
+        ]
+      },
+      {
+        "name": "mysore masala dosa",
+        "price": "$9.99",
+        "type": "vegetarian",
+        "pronunciation": "my-sore muh-sah-lah doh-sah",
+        "voice_variations": [
+          "mysore masala dosa",
+          "mysore dosa",
+          "my sore masala dosa"
+        ],
+        "description": "spicier version with red chutney spread and potato filling",
+        "spice_level": "medium-spicy",
+        "comparison": "spicier than regular masala dosa"
+      },
+      {
+        "name": "rava dosa",
+        "price": "$9.99",
+        "type": "vegetarian",
+        "pronunciation": "rah-vah doh-sah",
+        "voice_variations": [
+          "rava dosa",
+          "rava dose",
+          "semolina dosa",
+          "crispy dosa"
+        ],
+        "description": "extra crispy dosa made with semolina, very light and crunchy",
+        "texture": "crispier and lacier than regular dosa"
+      }
+    ],
+    "biryani_section": [
+      {
+        "name": "boneless mutton fry dum biryani",
+        "price": "$17.99",
+        "type": "non-vegetarian (goat/lamb)",
+        "pronunciation": "bone-less mut-ton fry dum beer-yah-nee",
+        "voice_variations": [
+          "mutton biryani",
+          "boneless mutton biryani",
+          "goat biryani",
+          "lamb biryani"
+        ],
+        "description": "aromatic rice layered with boneless goat meat, slow-cooked (dum style)",
+        "clarification_questions": [
+          {
+            "question": "mutton vs goat?",
+            "answer": "in indian cuisine, mutton refers to goat meat"
+          },
+          {
+            "question": "what's dum style?",
+            "answer": "slow-cooked in sealed pot for maximum flavor"
+          }
+        ]
+      },
+      {
+        "name": "nattukadi dum biryani",
+        "price": "$17.99",
+        "type": "non-vegetarian (chicken)",
+        "pronunciation": "nat-too-kah-dee dum beer-yah-nee",
+        "voice_variations": [
+          "nattukadi biryani",
+          "chicken biryani",
+          "natu kadi biryani"
+        ],
+        "description": "country-style chicken biryani with bone-in chicken pieces",
+        "special_note": "\"nattukadi\" means country chicken (free-range style)"
+      },
+      {
+        "name": "ulavacharu biryani",
+        "price": "$14.99",
+        "price_details": "(chicken/goat/egg) or (shrimp/fish)",
+        "type": "available in egg, non-veg options",
+        "pronunciation": "oo-lah-vah-chah-roo beer-yah-nee",
+        "voice_variations": [
+          "ulavacharu biryani",
+          "ulava charu biryani",
+          "horse gram biryani"
+        ],
+        "description": "unique biryani flavored with horse gram soup, distinctive tangy taste",
+        "protein_options": [
+          {
+            "protein": "chicken",
+            "price": "$14.99"
+          },
+          {
+            "protein": "goat",
+            "price": "$14.99"
+          },
+          {
+            "protein": "egg",
+            "price": "$14.99"
+          },
+          {
+            "protein": "shrimp",
+            "price": "$14.99"
+          },
+          {
+            "protein": "fish",
+            "price": "$14.99"
+          }
+        ]
+      }
+    ],
+    "kebabs_section": [
+      {
+        "name": "tandoori chicken",
+        "price": "$12.99",
+        "type": "non-vegetarian",
+        "pronunciation": "tan-door-ee chick-en",
+        "voice_variations": [
+          "tandoori chicken",
+          "tandoor chicken",
+          "grilled chicken"
+        ],
+        "description": "classic clay oven-grilled chicken marinated in yogurt and spices",
+        "popular": "known as \"king of kebabs\""
+      },
+      {
+        "name": "paneer tikka kebab",
+        "price": "$12.99",
+        "type": "vegetarian",
+        "pronunciation": "pah-neer tick-ah keh-bob",
+        "voice_variations": [
+          "paneer tikka",
+          "paneer kebab",
+          "cottage cheese kebab"
+        ],
+        "description": "grilled cottage cheese cubes marinated in spices",
+        "popular_choice": "best vegetarian kebab option"
+      },
+      {
+        "name": "chicken tikka kebab",
+        "price": "$14.99",
+        "type": "non-vegetarian",
+        "pronunciation": "chick-en tick-ah keh-bob",
+        "voice_variations": [
+          "chicken tikka",
+          "chicken tikka kebab",
+          "tikka chicken"
+        ],
+        "description": "boneless chicken chunks marinated and grilled in tandoor"
+      },
+      {
+        "name": "reshmi kebab",
+        "price": "$15.49",
+        "type": "non-vegetarian",
+        "pronunciation": "resh-mee keh-bob",
+        "voice_variations": [
+          "reshmi kebab",
+          "reshmi kabab",
+          "silky kebab"
+        ],
+        "description": "smooth, creamy minced chicken kebabs (reshmi means silky)"
+      },
+      {
+        "name": "lamb chops",
+        "price": "$22.99",
+        "type": "non-vegetarian",
+        "quantity": "6 pieces",
+        "voice_variations": [
+          "lamb chops",
+          "lamb chop",
+          "grilled lamb chops"
+        ],
+        "description": "premium grilled lamb chops, marinated and tandoor-cooked"
+      }
+    ],
+    "curries_section": [
+      {
+        "name": "butter chicken",
+        "price": "$16.99",
+        "type": "non-vegetarian",
+        "pronunciation": "but-ter chick-en",
+        "voice_variations": [
+          "butter chicken",
+          "murgh makhani",
+          "chicken makhani"
+        ],
+        "description": "creamy tomato-based curry with tender chicken, mildly spiced",
+        "spice_level": "mild",
+        "popular": "one of the most popular north indian dishes",
+        "pairs_with": [
+          "butter naan",
+          "garlic naan"
+        ]
+      },
+      {
+        "name": "chicken tikka masala",
+        "price": "$16.99",
+        "type": "non-vegetarian",
+        "pronunciation": "chick-en tick-ah mah-sah-lah",
+        "voice_variations": [
+          "chicken tikka masala",
+          "tikka masala"
+        ],
+        "description": "grilled chicken in spiced tomato-cream sauce",
+        "comparison": "similar to butter chicken but slightly spicier"
+      },
+      {
+        "name": "paneer butter masala",
+        "price": "$13.99",
+        "type": "vegetarian",
+        "pronunciation": "pah-neer but-ter mah-sah-lah",
+        "voice_variations": [
+          "paneer butter masala",
+          "paneer makhani"
+        ],
+        "description": "cottage cheese in creamy tomato sauce, vegetarian version of butter chicken"
+      },
+      {
+        "name": "gongura mutton",
+        "price": "$19.99",
+        "type": "non-vegetarian",
+        "pronunciation": "gon-goo-rah mut-ton",
+        "voice_variations": [
+          "gongura mutton",
+          "gongura goat",
+          "sorrel leaves mutton"
+        ],
+        "description": "tangy andhra-style goat curry with sorrel leaves",
+        "spice_level": "medium to spicy",
+        "regional_specialty": "andhra pradesh specialty"
+      }
+    ],
+    "indo_chinese_section": [
+      {
+        "name": "gobi manchurian",
+        "price_options": {
+          "gravy": "$11.99",
+          "dry": "$12.99"
+        },
+        "type": "vegetarian",
+        "pronunciation": "go-bee man-chur-ee-an",
+        "voice_variations": [
+          "gobi manchurian",
+          "cauliflower manchurian",
+          "gobi manchurian gravy",
+          "gobi manchurian dry"
+        ],
+        "description": "crispy cauliflower in indo-chinese sauce",
+        "style_options": [
+          {
+            "style": "gravy",
+            "price": "$11.99",
+            "note": "with sauce"
+          },
+          {
+            "style": "dry",
+            "price": "$12.99",
+            "note": "as appetizer"
+          }
+        ]
+      },
+      {
+        "name": "chilli chicken",
+        "price_options": {
+          "gravy": "$12.99",
+          "dry": "$13.99"
+        },
+        "type": "non-vegetarian",
+        "pronunciation": "chill-ee chick-en",
+        "voice_variations": [
+          "chili chicken",
+          "chilli chicken",
+          "chile chicken"
+        ],
+        "description": "spicy chicken with bell peppers in indo-chinese style",
+        "spice_level": "medium to spicy"
+      }
+    ],
+    "breads_section": [
+      {
+        "name": "naan",
+        "variations": [
+          {
+            "type": "plain naan",
+            "price": "$1.99"
+          },
+          {
+            "type": "butter naan",
+            "price": "$2.49"
+          },
+          {
+            "type": "garlic naan",
+            "price": "$2.99"
+          }
+        ],
+        "pronunciation": "naan (like 'non' with 'ah' sound)",
+        "voice_variations": [
+          "naan",
+          "nan",
+          "naan bread"
+        ],
+        "description": "soft leavened flatbread baked in tandoor",
+        "popular_pairing": "great with any curry"
+      },
+      {
+        "name": "paratha",
+        "price": "$3.99",
+        "type": "vegetarian",
+        "pronunciation": "pah-rah-tah",
+        "voice_variations": [
+          "paratha",
+          "parantha",
+          "indian flatbread"
+        ],
+        "description": "layered whole wheat flatbread"
+      }
+    ]
+  },
+  "common_conversation_patterns": {
+    "price_queries": [
+      {
+        "query": "how much is [item]?",
+        "response": "state exact price"
+      },
+      {
+        "query": "what's the price range?",
+        "response": "$1.99 to $22.99"
+      },
+      {
+        "query": "do you have anything under $10?",
+        "response": "list dosas, breads, egg dishes"
+      }
+    ],
+    "dietary_questions": [
+      {
+        "query": "vegetarian options?",
+        "response": "dosas, uttapam, veg curries, paneer items"
+      },
+      {
+        "query": "non-vegetarian?",
+        "response": "specify chicken, goat, seafood, egg"
+      },
+      {
+        "query": "vegan options?",
+        "response": "recommend dosas without ghee, some curries"
+      }
+    ],
+    "spice_level_queries": [
+      {
+        "query": "spicy dishes?",
+        "response": "andhra items, chettinad, gongura preparations"
+      },
+      {
+        "query": "mild options?",
+        "response": "butter chicken, korma, plain dosa"
+      },
+      {
+        "query": "not spicy?",
+        "response": "can prepare any item mild upon request"
+      }
+    ],
+    "recommendation_requests": [
+      {
+        "query": "what's popular?",
+        "response": "biryani, butter chicken, tandoori chicken, masala dosa"
+      },
+      {
+        "query": "first time here?",
+        "response": "recommend butter chicken with garlic naan, or masala dosa"
+      },
+      {
+        "query": "best biryani?",
+        "response": "boneless mutton or nattukadi dum biryani"
+      }
+    ],
+    "portion_questions": [
+      {
+        "query": "is [item] enough for one?",
+        "response": "most items are single portions"
+      },
+      {
+        "query": "sharing portions?",
+        "response": "biryani can serve 1-2, order sides for sharing"
+      }
+    ],
+    "clarification_needs": [
+      "mutton = goat meat in indian cuisine",
+      "paneer = indian cottage cheese",
+      "ghee = clarified butter",
+      "tikka = chunks/pieces",
+      "masala = spiced/curry",
+      "dum = slow-cooked/steamed method"
+    ]
+  },
+  "phonetic_spell_outs": {
+    "chettinad": "chet-tee-nahd",
+    "hyderabadi": "high-der-ah-bah-dee",
+    "ulavacharu": "oo-lah-vah-chah-roo",
+    "karivepaku": "kah-ree-veh-pah-koo",
+    "qubani ka meetha": "koo-bah-nee kah meet-ah"
+  }
+}
