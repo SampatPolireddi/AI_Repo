@@ -62,6 +62,3 @@ VoiceOrder-Backend/
 ## 🔗 API Integration
 
 The system exposes a single smart endpoint: `POST /webhook`. It accepts a JSON payload and automatically routes it to the specific function based on the arguments provided (e.g., if `cart_items` is present, it calculates the order total).
-
----
-*Built for the future of AI-driven dining.*
