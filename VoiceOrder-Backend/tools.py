@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import googlemaps
 import random
 import re
+from thefuzz import process
 
 load_dotenv()
 
@@ -24,8 +25,33 @@ def parse_price(price_str:str) -> float:
     except ValueError:
         return 0.0
 
+full_menu = menu_data.get("menu",{})
+
+all_valid_names = []
+for sections, items in full_menu.items():
+    if isinstance(items, list):
+        for item in items:
+            name = item.get("name")
+            if name: 
+                all_valid_names.append(name.lower())
+            
+            variations = item.get("voice_variations", [])
+            all_valid_names.extend([v.lower() for v in variations if v])
+
+#Helper func to  fuzzy name matching
+def fuzzy(item_name:str)->str:
+        best_match, score = process.extractOne(item_name.lower(), all_valid_names)
+
+        if score < 80:
+            print(f"NO CONFIDENT MATCH FOUND FOR {item_name}, THE BEST MATCH IS FOR {best_match} WITH A SCORE OF {score}")
+            return item_name
+        else:
+            print(f"BEST MATCH FOUND FOR {item_name}, THE BEST MATCH IS FOR {best_match} WITH A SCORE OF {score} ")
+            return best_match
+
 def get_price(item_name: str, quantity: int, dish_type: str) -> float:
-    lookup_name = item_name.lower().strip() #dish name
+    
+    lookup_name = fuzzy(item_name.strip()) #dish name
     item_type = dish_type.lower().strip() #To check if the dish has gravy/dry option pricing
     full_menu = menu_data.get("menu",{})
 
