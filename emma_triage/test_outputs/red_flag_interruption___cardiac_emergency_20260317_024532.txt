@@ -1,0 +1,27 @@
+
+============================================================
+TEST: RED FLAG INTERRUPTION - Cardiac Emergency
+============================================================
+
+[TURN 1] Patient: 'English please'
+  Phase: 1 | Turn in phase: 0
+  Extracted: {'language': 'English'}
+
+[TURN 2] Patient: 'Yes I consent'
+  Phase: 1 | Turn in phase: 1
+  Extracted: {'consent_given': True}
+  ✅ PHASE ADVANCE: 1 → 2
+
+[TURN 3] Patient: 'I have chest pain and I can't breathe'
+  Phase: 2 | Turn in phase: 0
+  🚨 RED FLAG TRIGGERED
+  Category:         cardiac
+  Matched term:     'chest pain'
+  Emergency Script: I need you to listen carefully. What you've described sounds like a cardiac emergency. Please call 911 immediately or have someone take you to the nearest emergency room right now. Do not drive yourself. Is there someone with you who can help?
+
+  ❌ CALL ESCALATED — pipeline stopped
+
+--- FINAL SESSION STATE ---
+Phase reached:  2
+Escalated:      True
+Red flags:      []

@@ -1,0 +1,101 @@
+
+============================================================
+TEST: NORMAL TRIAGE FLOW - Headache Patient
+============================================================
+
+[TURN 1] Patient: 'English please'
+  Phase: 1 | Turn in phase: 0
+  Extracted: {'language': 'English'}
+
+[TURN 2] Patient: 'Yes I consent'
+  Phase: 1 | Turn in phase: 1
+  Extracted: {'consent_given': True}
+  ✅ PHASE ADVANCE: 1 → 2
+
+[TURN 3] Patient: 'I have a bad headache'
+  Phase: 2 | Turn in phase: 0
+  Extracted: {'chief_complaint': 'headache', 'pain_severity': 7, 'pain_quality': 'throbbing', 'onset': 'acute', 'age_group': 'adult'}
+
+[TURN 4] Patient: 'It's behind my eyes and forehead'
+  Phase: 2 | Turn in phase: 1
+  Extracted: {'body_location': 'behind my eyes and forehead'}
+  ✅ PHASE ADVANCE: 2 → 3
+
+[TURN 5] Patient: 'It came on gradually over the past day'
+  Phase: 3 | Turn in phase: 0
+  Extracted: {'onset': 'gradual'}
+
+[TURN 6] Patient: 'It started yesterday afternoon'
+  Phase: 3 | Turn in phase: 1
+  Extracted: {'onset': 'acute'}
+
+[TURN 7] Patient: 'Bright light makes it worse, lying down helps a bit'
+  Phase: 3 | Turn in phase: 2
+  Extracted: {'provocation': 'Bright light makes it worse, lying down helps a bit'}
+
+[TURN 8] Patient: 'It feels like a throbbing pressure'
+  Phase: 3 | Turn in phase: 3
+  Extracted: {'pain_quality': 'throbbing pressure'}
+
+[TURN 9] Patient: 'It doesn't really spread anywhere'
+  Phase: 3 | Turn in phase: 4
+
+[TURN 10] Patient: 'I'd say about a 6 out of 10'
+  Phase: 3 | Turn in phase: 5
+  Extracted: {'pain_severity': 6}
+  ✅ PHASE ADVANCE: 3 → 4
+
+[TURN 11] Patient: 'It's been going on for about 18 hours now'
+  Phase: 4 | Turn in phase: 0
+  Extracted: {'duration_hours': 18.0}
+
+[TURN 12] Patient: 'I also have some nausea and sensitivity to light, no fever though'
+  Phase: 4 | Turn in phase: 1
+  Extracted: {'associated_symptoms': ['nausea', 'sensitivity to light']}
+  ✅ PHASE ADVANCE: 4 → 5
+
+[TURN 13] Patient: 'I have a history of migraines, I take sumatriptan when they happen'
+  Phase: 5 | Turn in phase: 0
+  Extracted: {'medical_history': ['migraines'], 'medications': ['sumatriptan']}
+
+[TURN 14] Patient: 'No allergies'
+  Phase: 5 | Turn in phase: 1
+  Extracted: {'allergies': []}
+
+[TURN 15] Patient: 'No recent hospitalizations'
+  Phase: 5 | Turn in phase: 2
+
+[TURN 16] Patient: 'I'm an adult, around 35'
+  Phase: 5 | Turn in phase: 3
+  Extracted: {'age_group': 'adult'}
+  ✅ PHASE ADVANCE: 5 → 6
+
+[TURN 17] Patient: 'No I'm not pregnant'
+  Phase: 6 | Turn in phase: 0
+  Extracted: {'pregnancy': False}
+  ✅ PHASE ADVANCE: 6 → 7
+
+  🏥 RUNNING SCORING PIPELINE...
+  Triage Level:           L4
+  Confidence:             0.8
+  Routing:                standard_appointment
+  Review Needed:          False
+  Recommended Speciality: General Practice
+  Reasoning:              Adult with acute onset moderate-to-severe (7/10) throbbing frontal/retro-orbital headache with photophobia and nausea and a history of migraine. No red flags reported (no focal neurological deficits, no fever, no neck stiffness, no syncope, not described as 'worst-ever' or thunderclap). This presentation is most consistent with a migraine exacerbation that typically requires timely outpatient/urgent evaluation and medication review (including triptan dosing and effect) rather than immediate emergency care. Recommend prompt clinical assessment today to ensure adequate analgesic/antiemetic/rescue therapy and to exclude evolving red flags.
+
+
+--- FINAL SESSION STATE ---
+Phase reached:       7
+Escalated:           False
+Chief complaint:     headache
+Body location:       behind my eyes and forehead
+Onset:               acute
+Pain severity:       7
+Pain quality:        throbbing
+Duration hours:      18.0
+Associated symptoms: ['nausea', 'sensitivity to light']
+Medical history:     ['migraines']
+Medications:         ['sumatriptan']
+Allergies:           []
+Age group:           adult
+Red flags:           []

@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Test outputs — optional, you may want to keep these
+# test_outputs/
+
+# Mac system files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
